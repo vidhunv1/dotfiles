@@ -24,3 +24,10 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 99
 vim.opt.guicursor = "n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2"
+
+local hr = tonumber(os.date("%H", os.time()))
+if hr >= 6 and hr <= 19 then -- day between 6am and 9pm
+	vim.opt.background = "light"
+else
+	vim.opt.background = "dark"
+end
