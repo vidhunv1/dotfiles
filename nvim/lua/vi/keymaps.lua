@@ -29,13 +29,12 @@ keymap.set("n", "N", "Nzzzv")
 keymap.set("i", "<M-BS>", "<C-w>")
 
 -- remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
--- close all other buffers but the current
-keymap.set("n", "<leader>o", ":silent %bd|e#|bd#<cr>")
+keymap.set("n", "<leader>o", ":silent %bd|e#|bd#<cr>") -- close all other buffers but the current
 keymap.set("n", "<leader>q", ":b#|bd#<cr>")
-keymap.set("n", "gq", "<C-w>q")
+keymap.set("n", "<C-q>", "<C-w>q")
 
 -- easy goto buffer
 keymap.set("n", "<leader>1", ":LualineBuffersJump! 1<cr>")
@@ -49,10 +48,10 @@ keymap.set("n", "<leader>8", ":LualineBuffersJump! 8<cr>")
 keymap.set("n", "<leader>9", ":LualineBuffersJump! 9<cr>")
 
 -- Diagnostic keymaps
-keymap.set('n', '[d', vim.diagnostic.goto_prev)
-keymap.set('n', ']d', vim.diagnostic.goto_next)
-keymap.set('n', '<leader>e', vim.diagnostic.open_float)
-keymap.set('n', '<leader>d', vim.diagnostic.setloclist)
+keymap.set("n", "[d", vim.diagnostic.goto_prev)
+keymap.set("n", "]d", vim.diagnostic.goto_next)
+keymap.set("n", "<leader>e", vim.diagnostic.open_float)
+keymap.set("n", "<leader>d", vim.diagnostic.setloclist)
 
 -- telescope
 keymap.set("", "<C-p>", require("telescope.builtin").find_files)
