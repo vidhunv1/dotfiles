@@ -35,6 +35,7 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 keymap.set("n", "<leader>o", ":silent %bd|e#|bd#<cr>") -- close all other buffers but the current
 keymap.set("n", "<leader>q", ":b#|bd#<cr>")
 keymap.set("n", "<C-q>", "<C-w>q")
+keymap.set("n", "<C-s>", ":silent w<cr>")
 
 -- easy goto buffer
 keymap.set("n", "<leader>1", ":LualineBuffersJump! 1<cr>")

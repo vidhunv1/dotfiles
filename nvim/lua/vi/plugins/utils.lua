@@ -138,6 +138,7 @@ return {
 				options = {
 					icons_enabled = false,
 					section_separators = { left = "", right = "" },
+					component_seperators = { left = "", right = "" },
 					disabled_filetypes = {},
 				},
 				sections = {
