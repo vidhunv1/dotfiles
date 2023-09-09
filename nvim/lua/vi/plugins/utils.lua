@@ -2,8 +2,8 @@ return {
 	{
 		"tpope/vim-fugitive",
 		init = function()
-			vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
-			vim.keymap.set("n", "<leader>gp", ":Git push<cr>")
+			vim.keymap.set("n", "gs", vim.cmd.Git)
+			vim.keymap.set("n", "gp", ":Git push<cr>")
 		end,
 	},
 	{
@@ -136,6 +136,7 @@ return {
 			local lualine = require("lualine")
 			lualine.setup({
 				options = {
+					globalstatus = true,
 					icons_enabled = false,
 					section_separators = { left = "", right = "" },
 					component_seperators = { left = "", right = "" },

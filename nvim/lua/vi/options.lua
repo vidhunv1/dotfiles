@@ -18,12 +18,13 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
-vim.opt.laststatus = 0
 vim.opt.cmdheight = 0
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 99
 vim.opt.guicursor = "n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2"
+vim.opt.winbar = "      %f"
+vim.opt.laststatus = 3
 
 local hr = tonumber(os.date("%H", os.time()))
 if hr >= 6 and hr <= 19 then -- day between 6am and 9pm

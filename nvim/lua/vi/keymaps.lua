@@ -8,6 +8,11 @@ keymap.set("v", "K", ":m '<-2<CR>gv-gv")
 keymap.set("n", "<leader>y", '"+y')
 keymap.set("v", "<leader>y", '"+y')
 keymap.set("n", "<leader>Y", '"+Y')
+keymap.set("n", "<leader>yi", '"+yi')
+keymap.set("n", "<leader>ya", '"+ya')
+
+keymap.set("n", "<leader>d", "_d")
+keymap.set("v", "<leader>d", "_d")
 
 -- Move window
 keymap.set("", "<C-h>", "<C-w>h")
