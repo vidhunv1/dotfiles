@@ -25,6 +25,8 @@ vim.opt.foldlevel = 99
 vim.opt.guicursor = "n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2"
 vim.opt.winbar = "      %f"
 vim.opt.laststatus = 3
+vim.opt.number = true
+vim.opt.relativenumber = true
 
 local hr = tonumber(os.date("%H", os.time()))
 if hr >= 6 and hr <= 19 then -- day between 6am and 9pm
