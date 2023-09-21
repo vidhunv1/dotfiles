@@ -14,12 +14,6 @@ keymap.set("n", "<leader>ya", '"+ya')
 keymap.set("n", "<leader>d", "_d")
 keymap.set("v", "<leader>d", "_d")
 
--- Move window
-keymap.set("", "<C-h>", "<C-w>h")
-keymap.set("", "<C-k>", "<C-w>k")
-keymap.set("", "<C-j>", "<C-w>j")
-keymap.set("", "<C-l>", "<C-w>l")
-
 -- Remove highlight
 keymap.set("n", "<ESC>", "<cmd> noh <CR>")
 
@@ -64,3 +58,10 @@ keymap.set("", "<C-p>", require("telescope.builtin").find_files)
 keymap.set("n", "<leader>fo", require("telescope.builtin").oldfiles)
 keymap.set("n", "<leader>fg", require("telescope.builtin").live_grep)
 keymap.set("n", "<leader>fd", require("telescope.builtin").diagnostics)
+
+-- Delegate shifting windows to TmuxNavigator
+keymap.set("", "<C-h>", "<Cmd>TmuxNavigateLeft<CR>", { desc = "Navigate Left" })
+keymap.set("", "<C-j>", "<Cmd>TmuxNavigateDown<CR>", { desc = "Navigate Down" })
+keymap.set("", "<C-k>", "<Cmd>TmuxNavigateUp<CR>", { desc = "Navigate Up" })
+keymap.set("", "<C-l>", "<Cmd>TmuxNavigateRight<CR>", { desc = "Navigate Right" })
+keymap.set("", "<C-\\>", "<Cmd>TmuxNavigatePrevious<CR>", { desc = "Previous Window" })
