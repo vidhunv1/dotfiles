@@ -1,4 +1,5 @@
 local keymap = vim.keymap
+local is_wsl_ubuntu = os.getenv("WSL_DISTRO_NAME") == "Ubuntu"
 
 keymap.set("x", "<leader>p", '"_dP')
 
@@ -24,8 +25,13 @@ keymap.set("n", "<C-u>", "<C-u>zz")
 keymap.set("n", "n", "nzzzv")
 keymap.set("n", "N", "Nzzzv")
 
+if is_wsl_ubuntu then
+-- Ctrl + backspace to delete word in insert mode
+  keymap.set("i", "<C-h>", "<C-w>")
+else
 -- Option + backspace to delete word in insert mode
-keymap.set("i", "<M-BS>", "<C-w>")
+  keymap.set("i", "<M-BS>", "<C-w>")
+end
 
 -- remap for dealing with word wrap
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })

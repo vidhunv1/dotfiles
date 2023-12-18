@@ -74,10 +74,15 @@ return {
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		opts = {
-			char = "┊",
-			show_trailing_blankline_indent = false,
-		},
+     main = "ibl",
+     opts = {
+      indent = {
+       char = "┊",
+      },
+      scope = {
+        enabled = false
+      }
+     },
 	},
 	{
 		"nvim-telescope/telescope.nvim",
@@ -101,126 +106,126 @@ return {
 						i = {
 							["<esc>"] = actions.close,
 						},
-					},
-				},
-			})
-			telescope.load_extension("fzf")
-		end,
-	},
-	{
-		"nvim-tree/nvim-tree.lua",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		opts = {
-			disable_netrw = true,
-			hijack_netrw = true,
-			update_cwd = false,
-			update_focused_file = {
-				enable = true,
-				update_cwd = false,
-			},
-			view = {
-				adaptive_size = false,
-				side = "right",
-				width = 25,
-			},
-		},
-		init = function()
-			vim.keymap.set("n", "<C-n>", "<cmd> NvimTreeToggle <CR>")
-			vim.keymap.set("i", "<C-n>", "<cmd> NvimTreeToggle <CR>")
-		end,
-	},
-	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = { "arkav/lualine-lsp-progress" },
-		init = function()
-			local lualine = require("lualine")
-			lualine.setup({
-				options = {
-					globalstatus = true,
-					icons_enabled = false,
-					section_separators = { left = "", right = "" },
-					component_seperators = { left = "", right = "" },
-					disabled_filetypes = {},
-				},
-				sections = {
-					lualine_a = {
-						{
-							"buffers",
-							show_filename_only = true,
-							mode = 2,
-							symbols = {
-								modified = " ●",
-								alternate_file = "",
-								directory = "",
-							},
-						},
-					},
-					lualine_b = {},
-					lualine_c = {},
-					lualine_x = { "lsp_progress" },
-					lualine_y = {
-						{
-							"diagnostics",
-							sources = { "nvim_diagnostic" },
-							symbols = {
-								error = " ",
-								warn = " ",
-								info = " ",
-								hint = " ",
-							},
-						},
-					},
-					lualine_z = { "progress" },
-				},
-			})
-		end,
-	},
-	{
-		"folke/flash.nvim",
-		event = "VeryLazy",
-		opts = {},
-		keys = {
-			{
-				"s",
-				mode = { "n", "o", "x" },
-				function()
-					require("flash").jump()
-				end,
-				desc = "Flash",
-			},
-			{
-				"S",
-				mode = { "n", "o", "x" },
-				function()
-					require("flash").treesitter()
-				end,
-				desc = "Flash Treesitter",
-			},
-			{
-				"r",
-				mode = "o",
-				function()
-					require("flash").remote()
-				end,
-				desc = "Remote Flash",
-			},
-			{
-				"R",
-				mode = { "o", "x" },
-				function()
-					require("flash").treesitter_search()
-				end,
-				desc = "Treesitter Search",
-			},
-			{
-				"<c-s>",
-				mode = { "c" },
-				function()
-					require("flash").toggle()
-				end,
-				desc = "Toggle Flash Search",
-			},
-		},
-	},
-	"christoomey/vim-tmux-navigator",
+          },
+        },
+      })
+      telescope.load_extension("fzf")
+    end,
+  },
+  {
+    "nvim-tree/nvim-tree.lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {
+      disable_netrw = true,
+      hijack_netrw = true,
+      update_cwd = false,
+      update_focused_file = {
+        enable = true,
+        update_cwd = false,
+      },
+      view = {
+        adaptive_size = false,
+        side = "right",
+        width = 25,
+      },
+    },
+    init = function()
+      vim.keymap.set("n", "<C-n>", "<cmd> NvimTreeToggle <CR>")
+      vim.keymap.set("i", "<C-n>", "<cmd> NvimTreeToggle <CR>")
+    end,
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "arkav/lualine-lsp-progress" },
+    init = function()
+      local lualine = require("lualine")
+      lualine.setup({
+        options = {
+          globalstatus = true,
+          icons_enabled = false,
+          section_separators = { left = "", right = "" },
+          component_seperators = { left = "", right = "" },
+          disabled_filetypes = {},
+        },
+        sections = {
+          lualine_a = {
+            {
+              "buffers",
+              show_filename_only = true,
+              mode = 2,
+              symbols = {
+                modified = " ●",
+                alternate_file = "",
+                directory = "",
+              },
+            },
+          },
+          lualine_b = {},
+          lualine_c = {},
+          lualine_x = { "lsp_progress" },
+          lualine_y = {
+            {
+              "diagnostics",
+              sources = { "nvim_diagnostic" },
+              symbols = {
+                error = " ",
+                warn = " ",
+                info = " ",
+                hint = " ",
+              },
+            },
+          },
+          lualine_z = { "progress" },
+        },
+      })
+    end,
+  },
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    opts = {},
+    keys = {
+      {
+        "s",
+        mode = { "n", "o", "x" },
+        function()
+          require("flash").jump()
+        end,
+        desc = "Flash",
+      },
+      {
+        "S",
+        mode = { "n", "o", "x" },
+        function()
+          require("flash").treesitter()
+        end,
+        desc = "Flash Treesitter",
+      },
+      {
+        "r",
+        mode = "o",
+        function()
+          require("flash").remote()
+        end,
+        desc = "Remote Flash",
+      },
+      {
+        "R",
+        mode = { "o", "x" },
+        function()
+          require("flash").treesitter_search()
+        end,
+        desc = "Treesitter Search",
+      },
+      {
+        "<c-s>",
+        mode = { "c" },
+        function()
+          require("flash").toggle()
+        end,
+        desc = "Toggle Flash Search",
+      },
+    },
+  },
+  "christoomey/vim-tmux-navigator",
 }

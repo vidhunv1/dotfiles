@@ -16,7 +16,7 @@ local on_attach = function(_, bufnr)
 	nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols)
 
 	nmap("K", vim.lsp.buf.hover)
-	vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+	vim.keymap.set("i", "<C-i>", vim.lsp.buf.signature_help, opts)
 
 	nmap("gD", vim.lsp.buf.declaration)
 	nmap("<leader>wa", vim.lsp.buf.add_workspace_folder)
